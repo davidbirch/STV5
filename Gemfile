@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -31,6 +31,30 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+# Use the whenever gem.  Read more: https://github.com/javan/whenever
+gem 'whenever', :require => false
+
+# use the feedzirra gem.  Read more: https://github.com/pauldix/feedzirra
+gem "feedzirra", "~> 0.2.1"
+
+# testing framework
+group :test do
+  gem "shoulda-matchers"
+  gem "capybara"
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails'
+  gem 'hirb'
+  gem 'annotate'
+end
+
+# twitter bootstrap and formtastic.  Read more: https://github.com/seyhunak/twitter-bootstrap-rails
+gem "less-rails"
+gem "twitter-bootstrap-rails"
+gem 'formtastic-bootstrap'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
