@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rule type:</strong>
+  <%= @sport_keyword.rule_type %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @sport_keyword.value %>
+</p>
+
+<p>
+  <strong>Sport:</strong>
+  <%= @sport_keyword.sport_id %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @sport_keyword.priority %>
+</p>
+
+<%= link_to 'Edit', edit_sport_keyword_path(@sport_keyword) %> |
+<%= link_to 'Back', sport_keywords_path %>

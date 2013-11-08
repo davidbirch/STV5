@@ -1,4 +1,18 @@
 STV5::Application.routes.draw do
+  resources :programs
+
+  resources :channels
+
+  resources :sports
+
+  resources :regions
+
+  resources :sport_keywords
+
+  resources :raw_programs
+
+  resources :raw_channels
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,29 @@
+<h1>Listing raw_channels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Channel name</th>
+      <th>Xmltv</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @raw_channels.each do |raw_channel| %>
+      <tr>
+        <td><%= raw_channel.channel_name %></td>
+        <td><%= raw_channel.xmltv_id %></td>
+        <td><%= link_to 'Show', raw_channel %></td>
+        <td><%= link_to 'Edit', edit_raw_channel_path(raw_channel) %></td>
+        <td><%= link_to 'Destroy', raw_channel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Raw channel', new_raw_channel_path %>
