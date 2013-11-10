@@ -1,21 +1,8 @@
-<%= form_for(@region) do |f| %>
-  <% if @region.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@region.errors.count, "error") %> prohibited this region from being saved:</h2>
-
-      <ul>
-      <% @region.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for @region, {:html => { :class => "form-horizontal" }} do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.actions do %>
+      <%= f.action :submit, :button_html => { :class => "btn-mini btn-primary"} %> 
+  <% end %>
 <% end %>

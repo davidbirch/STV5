@@ -1,14 +1,55 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
+  
+  TEN_PM_TOMORROW_RAW = DateTime.new((DateTime.now + 2).year, (DateTime.now + 2).month, (DateTime.now + 2).day, 8, 0, 0, '+10')
+  ELEVEN_PM_TOMORROW_RAW = DateTime.new((DateTime.now + 2).year, (DateTime.now + 2).month, (DateTime.now + 2).day, 9, 0, 0, '+10')
+  TEN_PM_YESTERDAY_RAW = DateTime.new((DateTime.now - 2).year, (DateTime.now - 2).month, (DateTime.now - 2).day, 8, 0, 0, '+10')
+  ELEVEN_PM_YESTERDAY_RAW = DateTime.new((DateTime.now - 2).year, (DateTime.now - 2).month, (DateTime.now - 2).day, 9, 0, 0, '+10')
+      
   factory :raw_program do
-    title "MyString"
-    subtitle "MyString"
-    category "MyString"
-    description "MyString"
-    start_datetime "2013-11-04 22:21:43"
-    end_datetime "2013-11-04 22:21:43"
-    region_name "MyString"
-    channel_xmltv_id "MyString"
+    title "Some title"
+    subtitle "Some subtitle"
+    category "The category"
+    description "A show"
+    start_datetime TEN_PM_TOMORROW_RAW
+    end_datetime ELEVEN_PM_TOMORROW_RAW
+    region_name "Some region"
+    channel_xmltv_id "channel.free.au"   
   end
+  
+  factory :valid_raw_program, parent: :raw_program do |f|
+    f.region_name "Brisbane"
+    f.channel_xmltv_id "seven.free.au"   
+  end
+  
+  factory :tennis_raw_program, parent: :valid_raw_program do |f|
+    f.category "Tennis"  
+  end
+  
+  factory :cricket_raw_program, parent: :valid_raw_program do |f|
+    f.category "Cricket"  
+  end
+  
+  factory :other_sport_raw_program, parent: :valid_raw_program do |f|
+    f.category "Sport"  
+  end
+  
+  factory :news_raw_program, parent: :valid_raw_program do |f|
+    f.category "Sport/News"  
+  end
+  
+  factory :non_sport_raw_program, parent: :valid_raw_program do |f|
+    f.category "Movie"  
+  end
+  
+  factory :terminator_keyword_raw_program, parent: :valid_raw_program do |f|
+    f.category "Cricket"
+    f.title "Terminator"
+  end
+  
+  factory :historic_raw_program, parent: :valid_raw_program do |f|
+    f.start_datetime TEN_PM_YESTERDAY_RAW
+    f.end_datetime ELEVEN_PM_YESTERDAY_RAW
+  end
+  
+  
 end

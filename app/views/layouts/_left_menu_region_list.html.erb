@@ -1,0 +1,12 @@
+<% if !@regions.nil? %>
+  <div class="left_region_list">
+    <ul>
+      <li><h3>Select Region</h3></li>
+      <% @regions.each do |region| %>
+      <li>
+        <%= link_to region.name, URI.escape("/"+region.name+"/") %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

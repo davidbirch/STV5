@@ -54,6 +54,7 @@ end
 # twitter bootstrap and formtastic.  Read more: https://github.com/seyhunak/twitter-bootstrap-rails
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem "formtastic", "~> 2.3.0.rc2"
 gem 'formtastic-bootstrap'
 
 # Use ActiveModel has_secure_password

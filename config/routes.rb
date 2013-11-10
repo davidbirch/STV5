@@ -1,70 +1,49 @@
 STV5::Application.routes.draw do
+  
+  require 'subdomain'
+  
+  # -------------------------------------------------------
+  # special route for all subdomains
+  constraints (Subdomain) do
+    get '/'        => 'pages#mobile_under_construction'
+    get '/*every'  => 'pages#mobile_under_construction'
+  end
+  
+  # -------------------------------------------------------
+  # static pages of supporting information
+  get 'Login'    => 'pages#login'
+  get 'Dashboard'=> 'pages#dashboard'
+  get 'Privacy'  => 'pages#privacy'
+  get 'Contact'  => 'pages#contact'
+  
+  # -------------------------------------------------------
+  # specific secured resource routes
   resources :programs
-
-  resources :channels
-
-  resources :sports
-
   resources :regions
-
+  resources :sports
   resources :sport_keywords
+     
+  resources :channels do
+    member do
+      put "toggle_black_flag"
+    end
+  end
+  
+  # -------------------------------------------------------
+  # special routes - these need to be last // catch all
+  
+  #scope :constraints => { :protocol => 'http' } do  
 
-  resources :raw_programs
-
-  resources :raw_channels
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+    # special routes for /region
+    get ':region_name' => 'guide#show', :constraints => {:format => "html"}
+      
+    # special route for /region/sport
+    get ':region_name/:sport_name' => 'guide#show', :constraints => {:format => "html"}
+  
+  #end
+  
+  # -------------------------------------------------------
+  # default route to the region index page
+  root :to => 'guide#index'
+  
 end

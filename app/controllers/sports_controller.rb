@@ -1,20 +1,27 @@
 class SportsController < ApplicationController
   before_action :set_sport, only: [:show, :edit, :update, :destroy]
-
+  force_ssl
+  before_filter :authenticate
+  
   # GET /sports
   # GET /sports.json
   def index
     @sports = Sport.all
+    @title = "Sports | Sport on Television in Australia"
+    @breadcrumb = "Sports"
   end
 
   # GET /sports/1
   # GET /sports/1.json
   def show
+    @title = "Sport: " + @sport.name + " | Sport on Television in Australia"
+    @breadcrumb = "Sport: "+ @sport.name
   end
 
   # GET /sports/new
   def new
     @sport = Sport.new
+     @breadcrumb = "New Sport"
   end
 
   # GET /sports/1/edit

@@ -1,7 +1,23 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
+  
   factory :sport do
-    name "MyString"
+    name "test sport"
   end
+  
+  factory :invalid_sport, parent: :sport do |f|
+    f.name ""
+  end
+    
+  factory :cricket_sport, parent: :sport do |f|
+    f.name "Cricket"
+  end
+  
+  factory :other_sport, parent: :sport do |f|
+    f.name "Other Sport"
+  end
+  
+  factory :tennis_sport, parent: :sport do |f|
+    f.name "Tennis"
+  end
+  
 end

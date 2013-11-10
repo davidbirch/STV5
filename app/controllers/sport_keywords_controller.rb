@@ -1,20 +1,27 @@
 class SportKeywordsController < ApplicationController
   before_action :set_sport_keyword, only: [:show, :edit, :update, :destroy]
-
+  force_ssl
+  before_filter :authenticate
+  
   # GET /sport_keywords
   # GET /sport_keywords.json
   def index
-    @sport_keywords = SportKeyword.all
+    @sport_keywords = SportKeyword.order("priority DESC, value_length DESC").load
+    @title = "Sport Keywords | Sport on Television in Australia"
+    @breadcrumb = "Sport Keywords"
   end
 
   # GET /sport_keywords/1
   # GET /sport_keywords/1.json
   def show
+    @title = "Sport Keyword: " + @sport_keyword.value + " | Sport on Television in Australia"
+    @breadcrumb = "Sport: "+ @sport_keyword.value
   end
 
   # GET /sport_keywords/new
   def new
     @sport_keyword = SportKeyword.new
+    @breadcrumb = "New Sport Keyword"
   end
 
   # GET /sport_keywords/1/edit

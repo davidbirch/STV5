@@ -1,0 +1,31 @@
+<ul class="breadcrumb">
+  <li>
+    <a href="/">SPORT ON TV</a>
+    <span class="divider">/</span>
+  </li>
+  <% if !@breadcrumb.nil? %>
+  <li class="active">
+    <%= @breadcrumb %>
+  </li>
+  <% elsif !@region.nil? && @sport.nil? && params[:search].nil? %>
+  <li class="active">
+    <%= @region.name %>
+  </li>
+  <% elsif !@sport.nil? %>
+  <li>
+    <%= link_to @region.name, URI.escape("/"+@region.name+"/") %>
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <%= @sport.name %>
+  </li>
+  <% elsif !params[:search].nil? %>
+  <li>
+    <%= link_to @region.name, URI.escape("/"+@region.name+"/") %>
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    Search results for '<%= params[:search] %>'
+  </li>
+  <% end %>
+</ul>

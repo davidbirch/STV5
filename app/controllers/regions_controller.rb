@@ -1,10 +1,14 @@
 class RegionsController < ApplicationController
   before_action :set_region, only: [:show, :edit, :update, :destroy]
-
+  force_ssl
+  before_filter :authenticate
+  
   # GET /regions
   # GET /regions.json
   def index
     @regions = Region.all
+    @title = "Regions | Sport on Television in Australia"
+    @breadcrumb = "Regions"
   end
 
   # GET /regions/1
@@ -15,10 +19,13 @@ class RegionsController < ApplicationController
   # GET /regions/new
   def new
     @region = Region.new
+    @breadcrumb = "New Region"
   end
 
   # GET /regions/1/edit
   def edit
+    @title = "Region: " + @region.name + "| Sport on Television in Australia"
+    @breadcrumb = "Region: "+ @region.name
   end
 
   # POST /regions

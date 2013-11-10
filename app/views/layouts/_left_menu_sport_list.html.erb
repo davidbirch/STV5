@@ -1,0 +1,12 @@
+<% if !@sports.nil? && !@region.nil? && !@region.new_record? %>
+  <div class="left_sport_list">
+    <ul>
+      <li><h3>Select Sport</h3></li>
+      <% @sports.each do |sport| %>
+      <li>       
+        <%= link_to sport.name, URI.escape("/"+@region.name+"/"+sport.name+"/") %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
