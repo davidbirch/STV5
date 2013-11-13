@@ -7,7 +7,8 @@ require 'spec_helper'
 describe "Pages" do
   
   include AuthHelper
-  
+  include SiteVariablesHelper 
+    
   describe "site" do
     it "should exist" do
       visit root_path
@@ -15,6 +16,44 @@ describe "Pages" do
     end 
   end
   
+  # ** cannot be implemented at this time because the Capybara driver cannot be
+  # ** changed from rack_test to selenium/firefox or selenium/chrome
+  # ** if this issue could be fixed these tests can be used
+  #
+  #
+  #
+  #describe "fully qualified desktop site", :js => true do
+  #  it "should exist" do
+  #    visit "http://"+site_variables["fully_qualified_desktop_subdomain"]
+  #    page.status_code.should be(200)  
+  #  end 
+  #end
+  #
+  #describe "fully qualified mobile site", :js => true do
+  #  it "should exist" do
+  #    visit "http://"+site_variables["fully_qualified_mobile_subdomain"]
+  #    print "\n"
+  #    print "#{page.current_url}\n"
+  #    print "#{page.response_headers}\n"
+  #    print "#{page.html}\n"
+  #    page.status_code.should be(404)  
+  #  end 
+  #end
+  #
+  #describe "an external test" do
+  #  it "should exist" do
+  #    visit "http://www.google.com.au"
+  #    print "\n"
+  #    print "#{page.current_url}\n"
+  #    print "#{page.response_headers}\n"
+  #    print "#{page.html}\n"
+  #    page.status_code.should be(404)  
+  #  end 
+  #end
+  #
+  # ***
+  # ***
+    
   describe "contact page" do
     it "should exist" do
       visit root_path
@@ -31,6 +70,13 @@ describe "Pages" do
       within(:css, 'div.left_content'){
         click_link('Privacy')
         }
+      page.status_code.should be(200)  
+    end 
+  end
+  
+  describe "mobile under construction page" do
+    it "should exist" do
+      visit "http://"+site_variables["fully_qualified_mobile_subdomain"]
       page.status_code.should be(200)  
     end 
   end
@@ -60,5 +106,5 @@ describe "Pages" do
       page.status_code.should be(401)  
     end    
   end
-  
+    
 end

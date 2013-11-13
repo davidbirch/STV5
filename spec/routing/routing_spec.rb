@@ -1,11 +1,21 @@
 require "spec_helper"
- 
+
 describe "routing" do
+
+  include SiteVariablesHelper
 
   it "to /" do
     get("/").should route_to("guide#index")
   end
 
+  it "to fully qualified desktop url" do
+    get("http://"+site_variables["fully_qualified_desktop_subdomain"]).should route_to("guide#index")
+  end
+  
+   it "to fully qualified mobile url" do
+    get("http://"+site_variables["fully_qualified_mobile_subdomain"]).should route_to("pages#mobile_under_construction")
+  end
+  
   it "to root" do
     get(root_path).should route_to("guide#index")
   end

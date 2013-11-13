@@ -17,6 +17,26 @@ module ApplicationHelper
     end
   end
   
+  def fully_qualified_desktop_subdomain(fully_qualified_desktop_subdomain = nil)
+    if fully_qualified_desktop_subdomain.present?
+      fully_qualified_desktop_subdomain
+    elsif @fully_qualified_desktop_subdomain.present?
+      @fully_qualified_desktop_subdomain
+    else
+      site_variables["fully_qualified_desktop_subdomain"]
+    end
+  end
+  
+  def fully_qualified_mobile_subdomain(fully_qualified_mobile_subdomain = nil)
+    if fully_qualified_mobile_subdomain.present?
+      fully_qualified_mobile_subdomain
+    elsif @fully_qualified_mobile_subdomain.present?
+      @fully_qualified_mobile_subdomain
+    else
+      site_variables["fully_qualified_mobile_subdomain"]
+    end
+  end
+  
   def meta_author(meta_author = nil)
     if meta_author.present?
       meta_author

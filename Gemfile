@@ -41,7 +41,9 @@ gem "feedzirra", "~> 0.2.1"
 # testing framework
 group :test do
   gem "shoulda-matchers"
-  gem "capybara"
+  gem "capybara", "~> 2.1.0"
+  gem "selenium-webdriver", "~> 2.35.1"
+  gem "chromedriver-helper"
 end
 
 group :development, :test do
