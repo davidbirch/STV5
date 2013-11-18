@@ -1,14 +1,7 @@
 STV5::Application.routes.draw do
   
   require 'subdomain'
-  
-  # -------------------------------------------------------
-  # special route for all subdomains
-  constraints (Subdomain) do
-    get '/'        => 'pages#mobile_under_construction'
-    get '/*every'  => 'pages#mobile_under_construction'
-  end
-  
+   
   # -------------------------------------------------------
   # static pages of supporting information
   get 'Login'    => 'pages#login'

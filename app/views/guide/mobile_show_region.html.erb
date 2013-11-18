@@ -1,0 +1,16 @@
+<h1>SPORT ON TV</h1>
+<h2>EVERY SPORT, EVERY CHANNEL</h2>
+<p><a href="/">Home</a></p>
+<h3><%= @region.name %></h3>
+<% if !@sports.nil? && !@region.nil? && !@region.new_record? %>
+<ul>
+    <li><h3>Select Sport</h3></li>
+    <% @sports.each do |sport| %>
+    <li>       
+    <%= link_to sport.name, URI.escape("/"+@region.name+"/"+sport.name+"/") %>
+    </li>
+    <% end %>
+</ul>
+  </div>
+<% end %>
+

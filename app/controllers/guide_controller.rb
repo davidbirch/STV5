@@ -2,11 +2,17 @@ class GuideController < ApplicationController
     
   # GET /
   def index
-    @title = page_title
+    
     @region_touch_icon_extension = page_region_touch_icon_extension
     @meta_description = page_meta_description
-    @news_entries = page_news_entries
-      
+    
+    if @subdomain == "m"
+      @title = "SPORT ON TV"
+      render :mobile_index, :layout => 'mobile'  
+    else
+      @title = page_title
+      @news_entries = page_news_entries
+    end  
   end
   
   # GET /[region]
@@ -16,20 +22,27 @@ class GuideController < ApplicationController
     @region = Region.find_by_name(params[:region_name])
     @sport = Sport.find_by_name(params[:sport_name])
     
+    @region_touch_icon_extension = page_region_touch_icon_extension
+    @meta_description = page_meta_description
+    
     if !params[:sport_name].nil? && @sport.nil?
       render(:file => "public/404.html", :layout => false, :status => 404)
     elsif @region.nil?
       render(:file => "public/404.html", :layout => false, :status => 404)
+    elsif @subdomain == "m" && @sport.nil?
+      @programs = Guide.new(@region,@sport, params[:search]).programs_for_html
+      @title = "SPORT ON TV"
+      render :mobile_show_region, :layout => 'mobile'
+   elsif @subdomain == "m"
+      @programs = Guide.new(@region,@sport, params[:search]).programs_for_html
+      @title = "SPORT ON TV"
+      render :mobile_show_sport, :layout => 'mobile'
     else
       @programs = Guide.new(@region,@sport, params[:search]).programs_for_html
+      @title = page_title
+      @news_entries = page_news_entries
     end
-    
-    
-    @title = page_title
-    @region_touch_icon_extension = page_region_touch_icon_extension
-    @meta_description = page_meta_description
-    @news_entries = page_news_entries
-     
+      
   end
   
   private

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     @regions = Region.all
     @sports = Sport.all
     
-    @subdomain = request.subdomain(2)
+    @subdomain = request.subdomain(2)  
   end
     
   protected

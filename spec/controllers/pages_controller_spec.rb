@@ -24,20 +24,6 @@ describe PagesController do
     end  
   end
 
-  describe "GET #mobile_under_construction" do
-    before :each do
-      get :mobile_under_construction
-    end
-    
-    it "renders the :mobile layout" do
-      response.should render_template :mobile
-    end
-    
-    it "renders the :mobile_under_construction view" do
-      response.should render_template :mobile_under_construction
-    end  
-  end
-
   describe "GET #dashboard (unauthenticated via https)" do
     before :each do
       request.env['HTTPS'] = 'on'

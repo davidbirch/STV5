@@ -12,8 +12,8 @@ describe "routing" do
     get("http://"+site_variables["fully_qualified_desktop_subdomain"]).should route_to("guide#index")
   end
   
-   it "to fully qualified mobile url" do
-    get("http://"+site_variables["fully_qualified_mobile_subdomain"]).should route_to("pages#mobile_under_construction")
+  it "to fully qualified mobile url" do
+    get("http://"+site_variables["fully_qualified_mobile_subdomain"]).should route_to("guide#index")
   end
   
   it "to root" do
@@ -39,9 +39,17 @@ describe "routing" do
   it "to /Region" do
     get("/Melbourne").should route_to("guide#show", :region_name => "Melbourne")
   end
+  
+  it "to (mobile)/Region" do
+    get("http://"+site_variables["fully_qualified_mobile_subdomain"]+"/Melbourne").should route_to("guide#show", :region_name => "Melbourne")
+  end
     
   it "to /Region/Sport" do
     get("/Melbourne/Cricket").should route_to("guide#show", {:region_name => "Melbourne", :sport_name => "Cricket"})
+  end
+  
+  it "to (mobile)/Region/Sport" do
+    get("http://"+site_variables["fully_qualified_mobile_subdomain"]+"/Melbourne/Cricket").should route_to("guide#show", {:region_name => "Melbourne", :sport_name => "Cricket"})
   end
   
   it "to /assets/obscure_image_name.png" do
