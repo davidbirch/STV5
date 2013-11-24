@@ -1,5 +1,58 @@
-<h1>SPORT ON TV</h1>
-<h2>EVERY SPORT, EVERY CHANNEL</h2>
-<p><%= link_to "Back", URI.escape("/"+@region.name+"/") %></p>
-<p>Viewing <%= @sport.name %></p>
-
+	<div data-role="header">
+                <%= link_to "Back", URI.escape("/"+@region.name+"/"),{"data-icon" => "arrow-l"}%>
+		<h1>SPORT ON TV</h1>
+                <div class="ui-bar ui-bar-b centre">
+                <h3>EVERY SPORT.  EVERY CHANNEL.</h3>
+                </div>
+                <div class="ui-bar ui-bar-e">
+                  <h3><%= @region.name %></h3>
+                </div>
+                <div class="ui-bar ui-bar-e">
+                  <h3><%= @sport.name %></h3>
+                </div> 
+	</div><!-- /header -->
+	<div data-role="content">  
+        <% if @programs.nil? || @programs.count == 0 %>
+          <p>There are no current results for <%= params[:sport_name] %> in <%= params[:region_name] %>.</p>
+        <% else %>
+        <% last_program = nil %>
+        <% program_count = @programs.count %>
+        <% day_count = 0 %>
+          <% @programs.each do |program| %>
+            <% if !last_program.nil? && program.local_start_date != last_program.local_start_date %>
+                </p>
+              </li>
+            </ul>
+            <% end %>
+            <% if last_program.nil? || program.local_start_date != last_program.local_start_date %>
+              <% day_count = day_count + 1 %>
+            <ul data-role="listview" data-inset="true" data-theme="e">
+              <li data-role="list-divider"><%= program.local_start_date %></li>
+              <li id="program_<%= program.id %>" data-theme="g">
+                <h4><%= program.full_title %></h4>
+                <p><%= program.local_start_time %> to <%= program.local_end_time %></p>
+                <p class="dark-cyan"><%= program.channel.name %>
+            <% else %>
+              <% if !last_program.nil? && program.sport.name == last_program.sport.name && program.channel.short_name == last_program.channel.short_name && program.start_datetime == last_program.start_datetime && program.end_datetime == last_program.end_datetime %>
+                <% if program.channel.name != last_program.channel.name %>
+                , <%= program.channel.name %>
+                <% end %>
+              <% else %>
+                </p>
+              </li>
+              <li id="program_<%= program.id %>" data-theme="g">
+                <h4><%= program.full_title %></h4>
+                <p><%= program.local_start_time %> to <%= program.local_end_time %></p>
+                <p class="dark-cyan"><%= program.channel.name %>
+              <% end %>
+            <% end %>  
+            <% last_program = program %>  
+          <% end %>
+                  </p>
+                </li>
+            </ul>
+        <% end %>
+        </div><!-- /content -->
+        <div data-role="footer">
+		<h4>Desktop | Mobile</h4>
+	</div><!-- /footer -->

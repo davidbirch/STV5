@@ -1,16 +1,21 @@
-<h1>SPORT ON TV</h1>
-<h2>EVERY SPORT, EVERY CHANNEL</h2>
-<p><a href="/">Home</a></p>
-<h3><%= @region.name %></h3>
-<% if !@sports.nil? && !@region.nil? && !@region.new_record? %>
-<ul>
-    <li><h3>Select Sport</h3></li>
-    <% @sports.each do |sport| %>
-    <li>       
-    <%= link_to sport.name, URI.escape("/"+@region.name+"/"+sport.name+"/") %>
-    </li>
-    <% end %>
-</ul>
-  </div>
-<% end %>
-
+	<div data-role="header">
+              <a href="/" data-icon="home">Home</a>
+	      <h1>SPORT ON TV</h1>
+              <div class="ui-bar ui-bar-b centre">
+                <h3>EVERY SPORT.  EVERY CHANNEL.</h3>
+              </div>
+              <div class="ui-bar ui-bar-e">
+                  <h3><%= @region.name %></h3>
+              </div> 
+	</div><!-- /header -->
+	<div data-role="content">
+          <p>View TV coverage for a sport below.</p>
+          <ul data-role="listview" data-inset="true" data-theme="g">
+            <% @sports.each do |sport| %>
+                <li><%= link_to sport.name, URI.escape("/"+@region.name+"/"+sport.name+"/") %></li>      
+            <% end %>
+          </ul>   
+        </div><!-- /content -->
+	<div data-role="footer">
+		<h4>Desktop | Mobile</h4>
+	</div><!-- /footer -->
