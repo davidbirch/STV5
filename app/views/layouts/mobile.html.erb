@@ -22,15 +22,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
     <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-    <% if !logged_in? && Rails.env.production? %>
-    <!-- Google Analytics -->
-    <script>
-      var _gaq=[['_setAccount','UA-8415542-1'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script> 
-    <% end %>
+    <%= render "layouts/mobile_google_analytics" %>
   </body>
 </html>
     

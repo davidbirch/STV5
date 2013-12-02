@@ -51,15 +51,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
-    <% if !logged_in? && Rails.env.production? %>
-    <!-- Google Analytics -->
-    <script>
-      var _gaq=[['_setAccount','UA-8415542-1'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script> 
-    <% end %>
+    <%= render "layouts/google_analytics" %>
   </body>
 </html>
     
