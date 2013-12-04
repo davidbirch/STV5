@@ -78,5 +78,33 @@ describe "Pages" do
       page.status_code.should be(401)  
     end    
   end
+  
+  describe "favicon.ico" do
+    it "should exist" do
+      visit "/favicon.ico"
+      page.status_code.should be(200)  
+    end 
+  end
+  
+  describe "favicon.png" do
+    it "should exist" do
+      visit "/favicon.png"
+      page.status_code.should be(200)  
+    end 
+  end
+  
+  describe "robots.txt" do
+    it "should exist" do
+      visit "/robots.txt"
+      page.status_code.should be(200)  
+    end 
+  end
+  
+  describe "sitemap.xml" do
+    it "should exist" do
+      visit "/sitemap.xml"
+      page.status_code.should be(200)  
+    end 
+  end
     
 end
