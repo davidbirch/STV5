@@ -17,3 +17,6 @@
 
 # Ignore the install notes
 /*.txt
+
+# ignore public assets
+/public/assets
