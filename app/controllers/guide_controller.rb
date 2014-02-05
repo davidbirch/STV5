@@ -7,7 +7,6 @@ class GuideController < ApplicationController
     @meta_description = page_meta_description
     
     if @subdomain == "m"
-      @title = "SPORT ON TV"
       render :mobile_index, :layout => 'mobile'  
     else
       @title = page_title
@@ -31,11 +30,9 @@ class GuideController < ApplicationController
       render(:file => "public/404.html", :layout => false, :status => 404)
     elsif @subdomain == "m" && @sport.nil?
       @programs = Guide.new(@region,@sport, params[:search]).programs_for_html
-      @title = "SPORT ON TV"
       render :mobile_show_region, :layout => 'mobile'
    elsif @subdomain == "m"
       @programs = Guide.new(@region,@sport, params[:search]).programs_for_html
-      @title = "SPORT ON TV"
       render :mobile_show_sport, :layout => 'mobile'
     else
       @programs = Guide.new(@region,@sport, params[:search]).programs_for_html
@@ -72,22 +69,6 @@ class GuideController < ApplicationController
       else
         "-"+@region.name.downcase
       end
-    end
-    
-    def page_meta_description  
-      if @sport.nil?
-        temp_sport = "Sport"
-      else
-        temp_sport = @sport.name
-      end
-      
-      if @region.nil?
-        temp_region = "Australia"
-      else
-        temp_region = @region.name+", Australia"
-      end
-       
-      "#{temp_sport} on Television in #{temp_region} | Live #{temp_sport} on TV | SPORT ON TV"
     end
     
     def page_meta_description  

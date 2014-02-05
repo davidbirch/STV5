@@ -1,12 +1,12 @@
 	<div data-role="header">
-            <h1>SPORT ON TV</h1>
+            <h1><%= website_plain_english_formatted_name.upcase %></h1>
 	</div><!-- /header -->
         <div class="ui-bar ui-bar-b centre">
             <h3>EVERY SPORT.  EVERY CHANNEL.</h3>
         </div>
 	<div data-role="content">
             <% if !@regions.nil? %>
-            <p>View TV coverage for sports in the cities below.</p>
+            <p><%= website_plain_english_formatted_name %> provides sports guide information for the following regions:</p>
                 <ul data-role="listview" data-inset="true" data-theme="g">
                   <% @regions.each do |region| %>
                     <li><%= link_to region.name, URI.escape("/"+region.name+"/") %></li>      
