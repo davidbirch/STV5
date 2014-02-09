@@ -1,0 +1,11 @@
+<meta name="author" content="<%= meta_author %>">
+<meta name="keywords" content="<%= meta_keywords %>">
+<meta name="description" content="<%= meta_description %>">
+
+<% if @region.nil? %>
+<link rel="canonical" href="<%= URI.escape("http://"+fully_qualified_desktop_subdomain+"/") %>" >
+<% elsif !@region.nil? && @sport.nil? %>
+<link rel="canonical" href="<%= URI.escape("http://"+fully_qualified_desktop_subdomain+"/"+@region.name+"/") %>" >
+<% elsif !@region.nil? && !@sport.nil? %>
+<link rel="canonical" href="<%= URI.escape("http://"+fully_qualified_desktop_subdomain+"/"+@region.name+"/"+@sport.name+"/") %>" >
+<% end %>

@@ -5,21 +5,7 @@
 	<div class="ui-bar ui-bar-b centre">
                 <h3>EVERY SPORT.  EVERY CHANNEL.</h3>
       </div>
-	    <div class="mobile_banner_advertisment centre">
-	    <% if !logged_in? && Rails.env.production? %>
-	    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	    <!-- STV Mobile Banner -->
-	    <ins class="adsbygoogle"
-		 style="display:inline-block;width:320px;height:50px"
-		 data-ad-client="ca-pub-4406472656891849"
-		 data-ad-slot="3582922885"></ins>
-	    <script>
-	    (adsbygoogle = window.adsbygoogle || []).push({});
-	    </script>
-	    <% else %>
-	    <img src="http://placehold.it/320x50" alt="placeholder 320x50">
-	    <% end %>  
-	</div>
+	<%= render "layouts/mobile_advertisment" %>
 	<div data-role="content">
           <p>View TV coverage for a sport below.</p>
           <ul data-role="listview" data-inset="true" data-theme="g">
@@ -28,21 +14,5 @@
             <% end %>
           </ul>   
         </div><!-- /content -->
-	    <div class="mobile_banner_advertisment centre">
-	    <% if !logged_in? && Rails.env.production? %>
-	    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	    <!-- STV Mobile Banner -->
-	    <ins class="adsbygoogle"
-		 style="display:inline-block;width:320px;height:50px"
-		 data-ad-client="ca-pub-4406472656891849"
-		 data-ad-slot="3582922885"></ins>
-	    <script>
-	    (adsbygoogle = window.adsbygoogle || []).push({});
-	    </script>
-	    <% else %>
-	    <img src="http://placehold.it/320x50" alt="placeholder 320x50">
-	    <% end %>  
-	</div>
-	<div data-role="footer">
-		<h4>Desktop | Mobile</h4>
-	</div><!-- /footer -->
+	<%= render "layouts/mobile_advertisment" %>
+	<%= render "layouts/mobile_footer" %>

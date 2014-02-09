@@ -1,0 +1,11 @@
+<div data-role="footer">
+<% if @region.nil? %>
+<h4><a href="<%= URI.escape("http://"+fully_qualified_desktop_subdomain+"/") %>">Desktop</a> | Mobile</h4>
+<% elsif !@region.nil? && @sport.nil? %>
+<h4><a href="<%= URI.escape("http://"+fully_qualified_desktop_subdomain+"/"+@region.name+"/") %>">Desktop</a> | Mobile</h4>
+<% elsif !@region.nil? && !@sport.nil? %>
+<h4><a href="<%= URI.escape("http://"+fully_qualified_desktop_subdomain+"/"+@region.name+"/"+@sport.name+"/") %>">Desktop</a> | Mobile</h4>
+<% else %>
+Desktop | Mobile
+<% end %>
+</div><!-- /footer -->

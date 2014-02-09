@@ -29,3 +29,16 @@
   </li>
   <% end %>
 </ul>
+<ul class="breadcrumb">
+  <li>
+<% if !@breadcrumb.nil? %>
+  
+<% elsif @region.nil? %>
+<a href="<%= URI.escape("http://"+fully_qualified_mobile_subdomain+"/") %>">Switch to a mobile-friendly page</a>
+<% elsif !@region.nil? && @sport.nil? %>
+<a href="<%= URI.escape("http://"+fully_qualified_mobile_subdomain+"/"+@region.name+"/") %>">Switch to a mobile-friendly page</a>
+<% elsif !@region.nil? && !@sport.nil? %>
+<a href="<%= URI.escape("http://"+fully_qualified_mobile_subdomain+"/"+@region.name+"/"+@sport.name+"/") %>">Switch to a mobile-friendly page</a>
+<% end %>
+  </li>
+</ul>

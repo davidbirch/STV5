@@ -83,5 +83,47 @@ describe "Guide" do
     end 
   end
   
+  describe "navigate to the mobile site and then the desktop version" do
+    it "should exist" do
+      visit "http://"+site_variables["fully_qualified_mobile_subdomain"]
+      click_link('Desktop')
+      page.status_code.should be(200)
+      page.title.should_not include("Melbourne")
+      page.title.should_not include("Cricket")
+    end 
+  end
+  
+  describe "navigate to the desktop site and then the mobile version" do
+    it "should exist" do
+      visit "http://"+site_variables["fully_qualified_desktop_subdomain"]
+      click_link('Switch to a mobile-friendly page')
+      page.status_code.should be(200)
+      page.title.should_not include("Melbourne")
+      page.title.should_not include("Cricket")
+    end 
+  end
+    
+  describe "navigate to mobile region page and then the desktop version" do
+    it "should exist" do
+      visit "http://"+site_variables["fully_qualified_mobile_subdomain"]
+      click_link('Melbourne')
+      click_link('Desktop')
+      page.status_code.should be(200)
+      page.title.should include("Melbourne")
+      page.title.should_not include("Cricket")
+    end 
+  end
+  
+  describe "navigate to mobile sport page and then the desktop version" do
+    it "should exist" do
+      visit "http://"+site_variables["fully_qualified_mobile_subdomain"]
+      click_link('Melbourne')
+      click_link('Cricket')
+      click_link('Desktop')
+      page.status_code.should be(200)
+      page.title.should include("Melbourne")
+      page.title.should include("Cricket")
+    end 
+  end
   
 end
