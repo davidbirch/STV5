@@ -32,6 +32,31 @@ describe Sport do
     FactoryGirl.build(:sport).should have_many(:programs)
   end
   
+  describe "sort in alphabetical order by default" do
+  
+    context "where the sports are created in the correct sequence" do
+      it "should be in alphabetical order by default" do
+          @cricket_sport = FactoryGirl.create(:cricket_sport)
+          @tennis_sport = FactoryGirl.create(:tennis_sport)
+          sports = Sport.all
+          sports.count.should == 2
+          sports.first.should eq(@cricket_sport)
+      end
+    end
+    
+    context "where the sports are created in the incorrect sequence" do
+      it "should be in alphabetical order by default" do
+          @tennis_sport = FactoryGirl.create(:tennis_sport)
+          @cricket_sport = FactoryGirl.create(:cricket_sport)
+          sports = Sport.all
+          sports.count.should == 2
+          sports.first.should eq(@cricket_sport)
+      end
+    end
+  end
+  
+    
+  
   describe "can find the correct sport based on a raw program" do
     
     before :each do

@@ -17,6 +17,8 @@ class Sport < ActiveRecord::Base
   
   validates_uniqueness_of :name
   
+  default_scope { order(:name) }
+  
   class << self
     
     def find_for_raw_program(raw_program)
