@@ -23,8 +23,8 @@
               <% day_count = day_count + 1 %>
             <ul data-role="listview" data-inset="true" data-theme="e">
               <li data-role="list-divider"><%= program.local_start_date %></li>
-              <li id="program_<%= program.id %>" data-theme="g">
-                <h4><%= program.full_title %></h4>
+              <li id="program_<%= program.id %>" data-theme="g" >
+                <h4 class="wrap-heading-override"><%= program.full_title %></h4>
                 <p><%= program.local_start_time %> to <%= program.local_end_time %></p>
                 <p class="dark-cyan"><%= program.channel.name %>
             <% else %>
@@ -36,7 +36,7 @@
                 </p>
               </li>
               <li id="program_<%= program.id %>" data-theme="g">
-                <h4><%= program.full_title %></h4>
+                <h4 class="wrap-heading-override"><%= program.full_title %></h4>
                 <p><%= program.local_start_time %> to <%= program.local_end_time %></p>
                 <p class="dark-cyan"><%= program.channel.name %>
               <% end %>
