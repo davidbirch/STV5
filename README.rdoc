@@ -1,10 +1,11 @@
 == README
 
-Version 5.0.0
+Version 5.2.0
 
 Additional information:
+* ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-linux]
+* gem 2.1.11
+* Rails 4.0.2
 
-* Ruby version
-ruby 2.0.0p247
-rails 4.0.1
+
 

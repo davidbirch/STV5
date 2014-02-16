@@ -107,6 +107,10 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
+  <loc>http://www.sportontv.com.au/Adelaide/Olympics/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
   <loc>http://www.sportontv.com.au/Adelaide/Other%20Sport/</loc>
   <changefreq>daily</changefreq>
 </url>
@@ -224,6 +228,10 @@
 </url>
 <url>
   <loc>http://www.sportontv.com.au/Brisbane/Netball/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.sportontv.com.au/Brisbane/Olympics/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
@@ -347,6 +355,10 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
+  <loc>http://www.sportontv.com.au/Melbourne/Olympics/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
   <loc>http://www.sportontv.com.au/Melbourne/Other%20Sport/</loc>
   <changefreq>daily</changefreq>
 </url>
@@ -467,6 +479,10 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
+  <loc>http://www.sportontv.com.au/Perth/Olympics/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
   <loc>http://www.sportontv.com.au/Perth/Other%20Sport/</loc>
   <changefreq>daily</changefreq>
 </url>
@@ -584,6 +600,10 @@
 </url>
 <url>
   <loc>http://www.sportontv.com.au/Sydney/Netball/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.sportontv.com.au/Sydney/Olympics/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
@@ -731,6 +751,10 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
+  <loc>http://m.sportontv.com.au/Adelaide/Olympics/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
   <loc>http://m.sportontv.com.au/Adelaide/Other%20Sport/</loc>
   <changefreq>daily</changefreq>
 </url>
@@ -848,6 +872,10 @@
 </url>
 <url>
   <loc>http://m.sportontv.com.au/Brisbane/Netball/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://m.sportontv.com.au/Brisbane/Olympics/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
@@ -971,6 +999,10 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
+  <loc>http://m.sportontv.com.au/Melbourne/Olympics/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
   <loc>http://m.sportontv.com.au/Melbourne/Other%20Sport/</loc>
   <changefreq>daily</changefreq>
 </url>
@@ -1091,6 +1123,10 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
+  <loc>http://m.sportontv.com.au/Perth/Olympics/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
   <loc>http://m.sportontv.com.au/Perth/Other%20Sport/</loc>
   <changefreq>daily</changefreq>
 </url>
@@ -1208,6 +1244,10 @@
 </url>
 <url>
   <loc>http://m.sportontv.com.au/Sydney/Netball/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://m.sportontv.com.au/Sydney/Olympics/</loc>
   <changefreq>daily</changefreq>
 </url>
 <url>
